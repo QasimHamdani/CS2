@@ -52,10 +52,12 @@ public class JavaBeansAndBytes {
         // Create two CoffeeDrink objects
             Expresso= new CoffeeDrink(5, "mocha", true);
             ChocoMonster = new CoffeeDrink( 3, "ChocoExtreme", true);
+            Expresso.setFlavor("Water");
         // TODO
         // Print out the order details
             Expresso.printInfo();
             ChocoMonster.printInfo();
+            String newSpecial = Expresso.getFlavor();
 
     }
 
