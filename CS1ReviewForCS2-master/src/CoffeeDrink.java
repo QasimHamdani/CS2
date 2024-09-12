@@ -8,6 +8,8 @@ class CoffeeDrink {
     String flavor;
     boolean hasWhippedCream;
 
+
+
     // Constructor for CoffeeDrink class
     public CoffeeDrink(int pnumberOfCups, String pflavor, boolean phasWhippedCream) {
         // TODO
