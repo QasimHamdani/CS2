@@ -58,7 +58,7 @@ public class JavaBeansAndBytes {
             Expresso.printInfo();
             ChocoMonster.printInfo();
             String newSpecial = Expresso.getFlavor();
-
+            specialOfTheDay(newSpecial);
     }
 
 
