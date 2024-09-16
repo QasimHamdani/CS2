@@ -9,12 +9,12 @@ import java.util.Random;
 public class JavaBeansAndBytes {
 
     // Variables for the CoffeeShop
-    String name;
-    boolean isOpen;
-    int yearFounded;
+    private String name;
+    private boolean isOpen;
+    private int yearFounded;
     public CoffeeDrink Expresso;
     public CoffeeDrink ChocoMonster;
-    public String water;
+    private String beverage;
 
 
     public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class JavaBeansAndBytes {
         randomDiscount();
         // TODO
         // Add parameter to specialOfTheDay (drink of your choice)
-        specialOfTheDay("water");
+        specialOfTheDay(beverage);
         countCups();
         baristasChoice();
 
@@ -52,11 +52,18 @@ public class JavaBeansAndBytes {
         // Create two CoffeeDrink objects
             Expresso= new CoffeeDrink(5, "mocha", true);
             ChocoMonster = new CoffeeDrink( 3, "ChocoExtreme", true);
+        ChocoMonster.setNumberOfCups(2);
+        ChocoMonster.setFlavor("White Chocolate");
+        ChocoMonster.setHasWhippedCream(false);
+        System.out.println("New number of cups: " + ChocoMonster.getNumberOfCups());
+        System.out.println("New flavor: " + ChocoMonster.getFlavor());
+        System.out.println("Has whipped cream: " + ChocoMonster.hasWhippedCream());
+
             Expresso.setFlavor("Water");
         // TODO
         // Print out the order details
             Expresso.printInfo();
-            ChocoMonster.printInfo();
+
             String newSpecial = Expresso.getFlavor();
             specialOfTheDay(newSpecial);
     }
@@ -72,10 +79,10 @@ public class JavaBeansAndBytes {
     }
 
     // Method with a parameter for the special of the day
-    public void specialOfTheDay(String pwater) {
-        water=pwater;
+    public void specialOfTheDay(String special) {
+        this.beverage=special;
 
-        System.out.println("Today's special is "+ water);
+        System.out.println("Today's special is "+ this.beverage+ ".");
         // TODO
         // Make this method accept a parameter representing the day’s special.
         // Print the day's special.

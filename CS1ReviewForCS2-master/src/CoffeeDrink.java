@@ -22,6 +22,29 @@ class CoffeeDrink {
 
     }
 
+    public void setFlavor(String newFlavour){
+        flavor=newFlavour;
+    }
+    public String getFlavor(){
+        return flavor;
+    }
+
+    public void setNumberOfCups(int numberOfCups) {
+        this.numberOfCups = numberOfCups;
+    }
+
+    public int getNumberOfCups() {
+        return numberOfCups;
+    }
+
+    public void setHasWhippedCream(boolean hasWhippedCream) {
+        this.hasWhippedCream = hasWhippedCream;
+    }
+
+    public boolean hasWhippedCream() {
+        return hasWhippedCream;
+    }
+
     // Method to print information about the CoffeeDrink
     public void printInfo() {
         // TODO
@@ -29,10 +52,5 @@ class CoffeeDrink {
         // Include information stored in each variable.
         System.out.println("Number of cups: "+numberOfCups + ". Flavor: "+flavor + ". Has Whipped Cream: "+hasWhippedCream+".");
     }
-    public void setFlavor(String newFlavour){
-        flavor=newFlavour;
-    }
-    public String getFlavor(){
-        return flavor;
-    }
+
 }
