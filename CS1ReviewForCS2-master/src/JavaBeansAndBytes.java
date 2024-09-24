@@ -66,6 +66,24 @@ public class JavaBeansAndBytes {
 
             String newSpecial = Expresso.getFlavor();
             specialOfTheDay(newSpecial);
+
+            int a=0;
+            while(a<10){
+                CoffeeDrink lemonyfresh = new CoffeeDrink((int)(Math.random()*100),"chocolate",false);
+               if(lemonyfresh.getNumberOfCups()>75){
+                   System.out.println("Too many cups! Order somewhere else");
+                   break;
+               }else{
+                   lemonyfresh.printInfo();
+               }
+                lemonyfresh.printInfo();
+               a++;
+            }
+            randomDiscount();
+            int x = 10;
+            int y= 3;
+            int mod= x % y;
+        System.out.println(mod);
     }
 
 
@@ -75,6 +93,11 @@ public class JavaBeansAndBytes {
         // Make this method generate a random integer discount (0-30%)
         // and print the result.
         int discount = (int)(Math.random()*31);
+        while(discount<15){
+            System.out.println("discount too low try again");
+             discount = (int)(Math.random()*31);
+        }
+
         System.out.println("you have recieved a " +discount + "% discount");
     }
 

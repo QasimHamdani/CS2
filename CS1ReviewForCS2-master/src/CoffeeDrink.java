@@ -44,6 +44,11 @@ class CoffeeDrink {
     public boolean hasWhippedCream() {
         return hasWhippedCream;
     }
+    public CoffeeDrink(){
+        numberOfCups=6;
+        flavor="Hazelnut";
+        hasWhippedCream=true;
+    }
 
     // Method to print information about the CoffeeDrink
     public void printInfo() {
