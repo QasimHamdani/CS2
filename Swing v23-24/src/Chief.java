@@ -6,6 +6,10 @@ public class Chief implements ActionListener {
     private JFrame mainFrame;
     private JLabel statusLabel;
     private JPanel controlPanel;
+    private JPanel winPanel;
+    private JPanel fitPanel;
+    private JPanel GamePanel;
+    private JPanel EwPanel;
     private JMenuBar mb;
     private JMenu file, edit, help;
     private JMenuItem cut, copy, paste, selectAll;
@@ -26,7 +30,7 @@ public class Chief implements ActionListener {
     private void prepareGUI() {
         mainFrame = new JFrame("Qasim Learning SWING");
         mainFrame.setSize(WIDTH, HEIGHT);
-        mainFrame.setLayout(new GridLayout(3, 3));
+        mainFrame.setLayout(new BorderLayout(3, 3));
 
         //menu at top
         cut = new JMenuItem("cut");
@@ -41,6 +45,8 @@ public class Chief implements ActionListener {
 
         //end menu at top
 
+        ta = new JTextArea();
+        ta.setBounds(50, 5, WIDTH-100, HEIGHT-50);
 
 
         statusLabel = new JLabel("Label", JLabel.CENTER);
@@ -52,27 +58,45 @@ public class Chief implements ActionListener {
             }
         });
         controlPanel = new JPanel();
-        controlPanel.setLayout(new BorderLayout()); //set the layout of the pannel
+        controlPanel.setLayout(new GridLayout(3,3)); //set the layout of the pannel
+        winPanel=new JPanel();
+        winPanel.setLayout(new GridLayout(2,1));
+        fitPanel=new JPanel();
+        fitPanel.setLayout(new GridLayout(1,2));
+        GamePanel=new JPanel();
+        GamePanel.setLayout(new GridLayout(2,13));
 
-
+        GamePanel.add(ta);//add typing area
+        EwPanel=new JPanel();
+        EwPanel.setLayout(new GridLayout(1,8));
         //mainFrame.add(statusLabel);
         mainFrame.setVisible(true);
     }
 
     private void showEventDemo() {
 
-        JLabel OneButton = new JLabel("One");
+        JLabel OneLabel = new JLabel("One");
         JButton okButton = new JButton("OK");
-        JLabel submitButton = new JLabel("Submit");
+        JLabel submitLabel = new JLabel("Submit");
         JButton cancelButton = new JButton("Cancel");
-        JLabel whyButton = new JLabel("why");
+        JLabel whyLabel = new JLabel("why");
         JButton LButton = new JButton("L");
-        JLabel TDButton = new JLabel("TD");
-        JLabel eButton = new JLabel("e");
+        JLabel TDLabel = new JLabel("TD");
+        JLabel eLabel = new JLabel("e");
         JButton WOWButton = new JButton("WOW");
         JButton LIPButton = new JButton("LIP");
         JLabel TLabel = new JLabel("T");
 
+        JLabel OLabel = new JLabel("O");
+        JButton NButton = new JButton("N");
+        JLabel SLabel = new JLabel("S");
+        JButton CButton = new JButton("C");
+        JLabel wLabel = new JLabel("w");
+        JButton AButton = new JButton("a");
+        JLabel DLabel = new JLabel("D");
+        JLabel VLabel = new JLabel("V");
+        JButton IButton = new JButton("I");
+       // JTextArea ta =new JTextArea("ta");
         okButton.setActionCommand("OK");
         //submitButton.setActionCommand("Submit");
         cancelButton.setActionCommand("Cancel");
@@ -81,23 +105,47 @@ public class Chief implements ActionListener {
         // submitButton.addActionListener(new ButtonClickListener());
         cancelButton.addActionListener(new ButtonClickListener());
 
-        mainFrame.add(OneButton);
-        mainFrame.add(LButton);
-        mainFrame.add(submitButton);
-        mainFrame.add(okButton);
+        controlPanel.add(OneLabel);
+        controlPanel.add(LButton);
+        controlPanel.add(submitLabel);
+        controlPanel.add(okButton);
         //mainFrame.add(controlPanel);
-        mainFrame.add(whyButton);
+        controlPanel.add(whyLabel);
+//mainFrame.add(winPanel);
 
-        controlPanel.add(TLabel, BorderLayout.CENTER);
-        controlPanel.add(cancelButton, BorderLayout.EAST);
-        controlPanel.add(TDButton, BorderLayout.SOUTH);
-        mainFrame.add(WOWButton);
-        mainFrame.add(eButton);
-        mainFrame.add(LIPButton);
+        controlPanel.add(cancelButton);
+        controlPanel.add(TDLabel);
+        controlPanel.add(WOWButton);
+        controlPanel.add(TLabel);
+       // mainFrame.add(winPanel);
+        winPanel.add(eLabel);
+        winPanel.add(LIPButton);
+
+        fitPanel.add(controlPanel);
+        fitPanel.add(winPanel);
+        GamePanel.add(fitPanel);
+        GamePanel.add(ta);
+
+        EwPanel.add(OLabel);
+        EwPanel.add(NButton);
+        EwPanel.add(SLabel);
+        EwPanel.add(CButton);
+        EwPanel.add(wLabel);
+        EwPanel.add(AButton);
+        EwPanel.add(DLabel);
+        EwPanel.add(IButton);
+        EwPanel.add(VLabel);
+
+        mainFrame.add(EwPanel, BorderLayout.SOUTH);
 
 
 
 
+
+
+
+
+        mainFrame.add(GamePanel);
         mainFrame.setVisible(true);
     }
 
