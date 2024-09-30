@@ -31,29 +31,19 @@ public class HtmlRead {
                 if (line.contains("https")) {
 
                     int start = line.indexOf("https");
+                    String link = line.substring(start);
 
-                    System.out.println(line);
-                    String link = line.substring(start);
                     int end = link.indexOf(("\""));
-                    System.out.println("chop start " + link);
-                    System.out.println("link: " + line.substring(0, end));
+                    if (end==-1){
+                        end = link.indexOf("'");
+                    }
+                    if( end==-1){
+                        end = link.indexOf("--");
+                    }
+                    System.out.println(start+ "," + end);
+                    System.out.println(line.substring(start, start+end));
                 }
-                if (line.contains("https")) {
-                    int start = line.indexOf("https");
-                    System.out.println(line);
-                    String link = line.substring(start);
-                    int end2 = link.indexOf(("\'"));
-                    System.out.println("chop start " + link);
-                    System.out.println("link: " + line.substring(0, end2));
-                }
-                if (line.contains("https")) {
-                    int start = line.indexOf("https");
-                    System.out.println(line);
-                    String link = line.substring(start);
-                    int end3 = link.indexOf((" "));
-                    System.out.println("chop start "+ link);
-                    System.out.println("link: "+ line.substring(0, end3));
-                }
+
 
             }
             reader.close();
