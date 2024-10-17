@@ -36,12 +36,7 @@ public class ReadJson {
         System.out.print(file.get("Mass")+"\n");
 
         // To print in JSON format.
-
-
-
-
         pull();
-
     }
 
     public static void pull() throws ParseException {
@@ -49,7 +44,7 @@ public class ReadJson {
         String totlaJson="";
         try {
 
-            URL url = new URL("https://swapi.dev/api/people/4/");
+            URL url = new URL("https://last-airbender-api.fly.dev/api/v1/characters");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -81,32 +76,41 @@ public class ReadJson {
 
         JSONParser parser = new JSONParser();
         //System.out.println(str);
-        org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) parser.parse(totlaJson);
-        System.out.println(jsonObject);
+        org.json.simple.JSONArray jsonArray = (org.json.simple.JSONArray) parser.parse(totlaJson);
+
+        System.out.println(jsonArray);
 
         try {
+            int h= jsonArray.size();
+            for (int e = 0; e < h; ++e) {
+                JSONObject Lilly = (JSONObject) jsonArray.get(e);
+                String name = (String) Lilly.get("name");
 
-            String name = (String)jsonObject.get("name");
 
-            org.json.simple.JSONArray msg = (org.json.simple.JSONArray) jsonObject.get("films");
-            int n =   msg.size(); //(msg).length();
-            for (int i = 0; i < n; ++i) {
-                String test =(String) msg.get(i);
-                System.out.println(test);
-                // System.out.println(person.getInt("key"));
+                org.json.simple.JSONArray msg = (org.json.simple.JSONArray) Lilly.get("allies");
+                int n = msg.size(); //(msg).length();
+                for (int i = 0; i < n; ++i) {
+                    String test = (String) msg.get(i);
+                    System.out.println(test);
+                    // System.out.println(person.getInt("key"));
+                }
+                org.json.simple.JSONArray tsg = (org.json.simple.JSONArray) Lilly.get("enemies");
+                int l = tsg.size(); //(msg).length();
+
+                for (int t = 0; t < l; ++t) {
+                    String test = (String) tsg.get(t);
+                    System.out.println(test);
+                    // System.out.println(person.getInt("key"));
+                }
+                // String weapon= (String)Lilly.get("weapon");
+                System.out.println(name);
+
             }
-            String height= (String)jsonObject.get("height");
-            System.out.println(name);
         }
+
 
         catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 }
-
-
